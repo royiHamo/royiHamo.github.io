@@ -1,5 +1,12 @@
-document.getElementById("loginButton").addEventListener("click", function() {
-    window.location.href = "login.html";
+document.addEventListener("DOMContentLoaded", function() {
+    var loginButton = document.getElementById("loginButton");
+    if (loginButton) {
+        loginButton.addEventListener("click", function() {
+            window.location.href = "login.html";
+        });
+    } else {
+        console.error("Element with id 'loginButton' not found.");
+    }
 });
 
 document.getElementById("loginForm").addEventListener("submit", function(event) {
