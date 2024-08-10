@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פריז - עיר האורות | Botel</title>
+    <link rel="stylesheet" href="frontend\css\styles.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="פריז, העיר הרומנטית ביותר בעולם, מציעה את המראות המפורסמים ביותר לצד מטבח צרפתי גורמה. מצא את המדריך שלך לחופשה מושלמת בעיר האורות.">
+    <meta name="keywords" content="פריז, חופשה, צרפת, תיירות, אתרים היסטוריים, מטבח צרפתי">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>פריז - עיר האורות</h1>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <div class="hero">
+                <img src="/frontend/images/paris-medium-page.jpg" alt="הלובר פריז">
+            </div>
+
+            <!-- Introduction -->
+            <section class="introduction">
+                <h2>החיים הטובים בפריז</h2>
+                <p>פריז, הלב התרבותי של אירופה, מזמינה אתכם לחקור את מוזיאון הלובר, מגדל אייפל, והארמונות המפוארים שלה. העיר היא יעד חובה לכל חובבי האמנות, האופנה, והאוכל הצרפתי.</p>
+            </section>
+
+            <!-- Top 10 Attractions -->
+            <section class="attractions">
+                <h2>מה אסור לפספס בפריז</h2>
+                <ul>
+                    <li><strong>מגדל אייפל:</strong> הסמל המפורסם ביותר של פריז.</li>
+                    <li><strong>מוזיאון הלובר:</strong> ביתה של המונה ליזה ויצירות אמנות רבות אחרות.</li>
+                    <li><strong>שאנז אליזה:</strong> הרחוב המפורסם ביותר בעולם, מלא בחנויות יוקרה.</li>
+                    <!-- Add more attractions here -->
+                </ul>
+            </section>
+
+            <!-- Restaurant Recommendations -->
+            <section class="restaurants">
+                <h2>מסעדות מומלצות בפריז</h2>
+                <div class="restaurant-list">
+                    <div class="restaurant-item">
+                        <img src="/frontend/images/jules-verne-restaurant.jpg" alt="Le Jules Verne">
+                        <h3>Le Jules Verne</h3>
+                        <p>חווית אוכל בתוך מגדל אייפל...</p>
+                        <a href="https://www.lejulesverne-paris.com" target="_blank">להזמנת שולחן</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/frontend/images/epicure-restaurant.jpg" alt="Epicure">
+                        <h3>Epicure</h3>
+                        <p>מסעדה ברמה גבוהה המגישה אוכל צרפתי קלאסי עם טוויסט מודרני.</p>
+                        <a href="https://www.oetkercollection.com/hotels/le-bristol-paris/restaurants-bar/restaurants/epicure/" target="_blank">להזמנת שולחן</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/frontend/images/le-cinq-restaurant.jpg" alt="Le Cinq">
+                        <h3>Le Cinq</h3>
+                        <p>מסעדה עם שלושה כוכבי מישלן המגישה את מיטב האוכל הצרפתי.</p>
+                        <a href="https://www.fourseasons.com/paris/dining/restaurants/le_cinq/" target="_blank">להזמנת שולחן</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hotel Recommendations -->
+            <section class="whatsapp">
+                <h2>להזמנת מלון בצ'אט בוט</h2>
+                <button onclick="openWhatsApp()">
+                    <a>&nbsp;&nbsp;&nbsp;שלח הודעה עכשיו&nbsp;&nbsp;<img src="/frontend/icons/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon"></a>
+                </button>
+            </section>
+
+            <!-- Interactive Map -->
+            <section class="map">
+                <h2>מפת פריז</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999776101069!2d2.2922927156747344!3d48.85884407928778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efccb31d2bf%3A0x43d0d5c0cc4b2d49!2sEiffel%20Tower!5e0!3m2!1sen!2sil!4v1620123456789!5m2!1sen!2sil" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </section>
+
+            <!-- User Comments and Ratings -->
+            <section class="comments">
+                <h2>דירוגים והמלצות גולשים</h2>
+                <div class="comment-list">
+                    <!-- Display user comments here -->
+
+                </div>
+                <form id="commentForm">
+                    <label for="name">שם:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="rating">דירוג:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                    <label for="comment">המלצה:</label>
+                    <textarea id="comment" name="comment" required></textarea>
+                    <button type="submit">שלח</button>
+                </form>
+            </section>
+
+            <!-- Related Blog Posts -->
+            <section class="related-posts">
+                <h2>כתבות נוספות על פריז</h2>
+                <div class="post-list">
+                    <div class="post-item">
+                        <img src="/frontend/images/hidden-gems.jpg" alt="פינות נסתרות בפריז">
+                        <h3>פינות נסתרות בפריז</h3>
+                        <p>גלה את הסודות של העיר...</p>
+                        <a href="hidden-gems.html">קרא עוד</a>
+                    </div>
+                    <!-- Add more blog posts here -->
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta">
+                <h2>הצטרפו לניוזלטר שלנו</h2>
+                <p>רוצים לקבל את העדכונים הכי חמים על פריז ועוד יעדים? הצטרפו לניוזלטר שלנו וקבלו הטבות ומידע ישירות למייל שלכם.</p>
+                <form id="newsletterForm">
+                    <label for="email">דואר אלקטרוני:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit">הירשמו עכשיו</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
