@@ -5,19 +5,31 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "login.html";
         });
     } else {
-        console.error("Element with id 'loginButton' not found.");
+        console.info("Element with id 'loginButton' not found.");
     }
 });
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", function() {
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
 
-    if (username === "admin" && password === "NIRO8799!") {
-        window.location.href = "dashboard.html"; // Replace with the actual dashboard page
+            if (username === "admin" && password === "NIRO8799!") {
+                window.location.href = "dashboard.html"; // Replace with the actual dashboard page
+            } else {
+                const errorMessage = document.getElementById("errorMessage");
+                if (errorMessage) {
+                    errorMessage.textContent = "שם משתמש או סיסמה שגויים.";
+                } else {
+                    console.info("Element with id 'errorMessage' not found.");
+                }
+            }
+        });
     } else {
-        document.getElementById("errorMessage").textContent = "שם משתמש או סיסמה שגויים.";
+        console.info("Element with id 'loginForm' not found.");
     }
 });
 
@@ -33,24 +45,38 @@ fetch("http://localhost:3000/api/comments")
         });
     });
 
-// write the submit logic of commentForm, insert every comment to the db bototel.db in backend folder
-document.getElementById("commentForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const comment = document.getElementById("comment").value;
-    const commentList = document.getElementById("comment-list");
+document.addEventListener("DOMContentLoaded", function() {
+    const commentForm = document.getElementById("commentForm");
+    if (commentForm) {
+        commentForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const comment = document.getElementById("comment").value;
+            const commentList = document.getElementById("comment-list");
 
-    const commentElement = document.createElement("li");
-    commentElement.textContent = comment;
-    commentList.appendChild(commentElement);
+            const commentElement = document.createElement("li");
+            commentElement.textContent = comment;
+            commentList.appendChild(commentElement);
 
-    // Insert the comment to the database
-    fetch("http://localhost:3000/api/add_comment", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ comment })
-    });
+            // Insert the comment to the database
+            fetch("http://localhost:3000/api/add_comment", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ comment })
+            }).then(response => {
+                if (response.ok) {
+                    console.info("Comment added to the database successfully.");
+                } else {
+                    console.info("Failed to add comment to the database.");
+                }
+            }).catch(error => {
+                console.info("Error occurred while adding comment to the database:", error);
+            });
+        });
+    } else {
+        console.info("Element with id 'commentForm' not found.");
+    }
 });
 
 function openWhatsApp() {

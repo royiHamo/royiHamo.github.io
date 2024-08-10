@@ -26,6 +26,7 @@ for cls in Base.classes:
 
 # Mapped classes are now created with names by default matching that of the table names.
 User = Base.classes.user
+Comment = Base.classes.comment
 
 @app.route('/api/users', methods=['GET'])
 def get_users():
@@ -42,16 +43,16 @@ def get_users():
     ]
     return jsonify(user_list)
 
-@app.route('api/add_comment' , methods=['POST'])
-def add_comment():
+@app.route('/api/add_comment' , methods=['POST'])
+def add_comment(user_id, rating, text):
     session = Session(engine)
-    user = User(
-        phone_number='123456789',
-        name='Royi',
-        state='0',
-        data='{}'
-    )
-    session.add(user)
+    # should add a row for comment to a new table named comments
+    comment = Comment()
+    comment.user_id = user_id
+    comment.rating = rating
+    comment.text = text
+    session.add(comment)
+        
     session.commit()
     return jsonify({'message': 'success'})
 
