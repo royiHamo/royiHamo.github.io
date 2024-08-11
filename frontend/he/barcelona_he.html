@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ברצלונה - עירו של גאודי | Botel</title>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+    <meta name="description" content="ברצלונה, עיר התשוקה והאומנות, מציעה את הארכיטקטורה המדהימה של גאודי, חופי זהב ומטבח ים תיכוני משובח. גלה את המדריך שלך לחופשה מושלמת בעיר זו.">
+    <meta name="keywords" content="ברצלונה, חופשה, ספרד, תיירות, ארכיטקטורה, מטבח ים תיכוני">
+</head>
+<body>
+    <div class="container">
+        <!-- Include Header -->
+        <div id="header"></div>
+        <script>
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+        </script>
+        <header>
+            <h1>ברצלונה - עירו של גאודי</h1>
+        </header>
+
+        <main>
+            <div class="hero">
+                <img src="../images/barcelona-medium-page.jpg" alt="סגרדה פמיליה ברצלונה">
+            </div>
+
+            <section class="introduction">
+                <h2>ברצלונה התוססת</h2>
+                <p>ברצלונה, עם האדריכלות המדהימה שלה, חיי הלילה הסוערים והחופים המרהיבים, היא אחת הערים המרתקות ביותר באירופה. תמצאו כאן שילוב מושלם בין אומנות, תרבות ומסורת.</p>
+            </section>
+
+            <section class="attractions">
+                <h2>מה אסור לפספס בברצלונה</h2>
+                <ul>
+                    <li><strong>סגרדה פמיליה:</strong> יצירת האדריכלות המפורסמת של גאודי.</li>
+                    <li><strong>פארק גואל:</strong> פארק מדהים עם פסלים ועיצובים מרהיבים.</li>
+                    <li><strong>לה רמבלה:</strong> הרחוב המפורסם ביותר של ברצלונה, עם בתי קפה, חנויות ודוכנים.</li>
+                </ul>
+            </section>
+
+            <!-- Restaurant Recommendations -->
+            <section class="restaurants">
+                <h2>מסעדות מומלצות בברצלונה</h2>
+                <div class="restaurant-list">
+                    <div class="restaurant-item">
+                        <img src="/images/sinc-sentits-restaurant.jpg" alt="Cinc Sentits">
+                        <img src="/images/sinc-sentits-restaurant2.jpg" alt="Cinc Sentits">
+                        <h3>Cinc Sentits</h3>
+                        <p>מסעדת מישלן המציעה חוויה גסטרונומית מתוחכמת.</p>
+                        <a href="https://www.cincsentits.com" target="_blank">להזמנת שולחן</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/images/quimet-quimet-restaurant.jpg" alt="Quimet & Quimet">
+                        <h3>Quimet & Quimet</h3>
+                        <p>בר טאפס קטן ואותנטי עם מבחר רחב של מנות.</p>
+                        <a href="https://www.quimetquimet.com" target="_blank">להזמנת שולחן</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/images/canaletes-restaurant.jpg" alt="Bar Canaletas">
+                        <h3>Bar Canaletas</h3>
+                        <p>מסעדה קטלאנית מסורתית המגישה מאכלים מקומיים אותנטיים.</p>
+                        <a href="https://www.barcanaletas.com" target="_blank">להזמנת שולחן</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="whatsapp">
+                <h2>להזמנת מלון בצ'אט בוט</h2>
+                <button onclick="openWhatsApp('ברצלונה')">
+                    <a>&nbsp;&nbsp;&nbsp;שלח הודעה עכשיו&nbsp;&nbsp;<img src="../icons/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon"></a>
+                </button>
+            </section>
+
+            <section class="map">
+                <h2>מפת ברצלונה</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d299627.43855864475!2d2.069134013144717!3d41.38791770495064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f3e0e60a11%3A0xb2e2d29db167ad32!2sBarcelona%2C%20Spain!5e0!3m2!1sen!2sil!4v1620123456789!5m2!1sen!2sil" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </section>
+
+            <section class="comments">
+                <h2>דירוגים והמלצות גולשים</h2>
+                <div id="comment-list"></div>
+                <form id="commentForm">
+                    <label for="name">שם:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="rating">דירוג:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                    <label for="comment">המלצה:</label>
+                    <textarea id="comment" name="comment" required></textarea>
+                    <button type="submit">שלח</button>
+                </form>
+            </section>
+
+            <section class="related-posts">
+                <h2>כתבות נוספות על ברצלונה</h2>
+                <div class="post-list">
+                    <div class="post-item">
+                        <img src="../images/hidden-gems-barcelona.jpg" alt="פינות נסתרות בברצלונה">
+                        <h3>פינות נסתרות בברצלונה</h3>
+                        <p>גלה את הסודות של העיר...</p>
+                        <a href="hidden-gems-barcelona_he.html">קרא עוד</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h2>הצטרפו לניוזלטר שלנו</h2>
+                <p>רוצים לקבל את העדכונים הכי חמים על ברצלונה ועוד יעדים? הצטרפו לניוזלטר שלנו וקבלו הטבות ומידע ישירות למייל שלכם.</p>
+                <form id="newsletterForm">
+                    <label for="email">דואר אלקטרוני:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit">הירשמו עכשיו</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

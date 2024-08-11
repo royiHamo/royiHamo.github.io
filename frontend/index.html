@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botel - הבלוג המוביל לחופשות באירופה</title>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Include Header -->
+        <div id="header"></div>
+        <script>
+            fetch('../header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+            </script>
+
+        <header>
+        <h1>Botel-ברוכים הבאים ל</h1>
+        <p>המקור המוביל לחופשות בלתי נשכחות באירופה</p>
+        <button id="loginButton">התחבר</button>
+        </header>
+        <main>
+            <section class="destinations">
+                <h2>יעדים פופולריים באירופה</h2>
+                <div class="destination-grid">
+                    <div class="destination-box" onclick="location.href='he/rome_he.html';">
+                        <img src="../images/rome-small-box.jpg" alt="רומא">
+                        <h3>רומא - עיר הנצח</h3>
+                        <p>גלה את הקסם של רומא עם ההיסטוריה העשירה והאוכל המדהים</p>
+                    </div>
+                    <div class="destination-box" onclick="location.href='he/paris_he.html';">
+                        <img src="../images/paris-small-box.jpg" alt="פריז">
+                        <h3>פריז - עיר האורות</h3>
+                        <p>התחל את המסע שלך בעיר הרומנטית ביותר בעולם</p>
+                    </div>
+                    <div class="destination-box" onclick="location.href='he/barcelona_he.html';">
+                        <img src="../images/barcelona-small-box.jpg" alt="ברצלונה">
+                        <h3>ברצלונה - אמנות, תרבות ואדריכלות</h3>
+                        <p>חקור את האדריכלות המדהימה והחופים המפוארים של ברצלונה</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

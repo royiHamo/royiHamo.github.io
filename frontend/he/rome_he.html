@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <title>רומא - העיר הנצחית | Botel</title>
+    <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+    <meta name="description" content="רומא, אחת הערים העתיקות ביותר בעולם, מציעה חוויות היסטוריות, אמנותיות ותרבותיות שאין כמותן. גלה את נפלאות העיר הנצחית.">
+    <meta name="keywords" content="רומא, איטליה, חופשה, תיירות, היסטוריה, מטבח איטלקי">
+</head>
+<body>
+    <div class="container">
+        <!-- Include Header -->
+        <div id="header"></div>
+        <script>
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+        </script>
+        <header>
+            <h1>רומא - העיר הנצחית</h1>
+        </header>
+
+        <main>
+            <div class="hero">
+                <img src="../images/rome-medium-page.jpg" alt="קולוסיאום רומא">
+            </div>
+
+            <section class="introduction">
+                <h2>העיר הנצחית</h2>
+                <p>רומא, העיר שמכילה את השכבות ההיסטוריות של תרבויות רבות, מזמינה אתכם להיכנס לעולם הקסם של האימפריה הרומית, להנות מהמטבח האיטלקי ולחקור את הפורומים העתיקים והמבנים המרשימים שלה.</p>
+            </section>
+
+            <section class="attractions">
+                <h2>מה אסור לפספס ברומא</h2>
+                <ul>
+                    <li><strong>קולוסיאום:</strong> האמפיתיאטרון העתיק ביותר והגדול ביותר בעולם.</li>
+                    <li><strong>הפורום הרומאי:</strong> מרכז החיים הפוליטיים והחברתיים של רומא העתיקה.</li>
+                    <li><strong>מזרקת טרווי:</strong> מזרקת המים המפורסמת ביותר, בה משליכים מטבע ומבקשים משאלה.</li>
+                </ul>
+            </section>
+
+            <!-- Restaurant Recommendations -->
+            <section class="restaurants">
+                <h2>מסעדות מומלצות ברומא</h2>
+                <div class="restaurant-list">
+                    <div class="restaurant-item">
+                        <img src="/images/antico-arco-restaurant.jpg" alt="Antico Arco">
+                        <img src="/images/antico-arco-restaurant2.jpg" alt="Antico Arco">
+                        <h3>Antico Arco</h3>
+                        <p>מסעדה איטלקית מודרנית המציעה מנות גורמה.</p>
+                        <a href="https://www.anticoarco.it" target="_blank">להזמנת שולחן</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/images/roscioli-restaurant.jpg" alt="Roscioli">
+                        <h3>Roscioli</h3>
+                        <p>מסעדה איטלקית קלאסית המתמחה במאכלים רומאים מסורתיים.</p>
+                        <a href="https://www.roscioli.com" target="_blank">להזמנת שולחן</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/images/cavalieri-restaurant.jpg" alt="La Pergola">
+                        <h3>La Pergola</h3>
+                        <p>מסעדת מישלן המגישה מטבח איטלקי קלאסי עם נוף פנורמי.</p>
+                        <a href="https://www.romecavalieri.com/lapergola.php" target="_blank">להזמנת שולחן</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="whatsapp">
+                <h2>להזמנת מלון בצ'אט בוט</h2>
+                <button onclick="openWhatsApp('רומא')">
+                    <a>&nbsp;&nbsp;&nbsp;שלח הודעה עכשיו&nbsp;&nbsp;<img src="../icons/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon"></a>
+                </button>
+            </section>
+
+            <section class="map">
+                <h2>מפת רומא</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799149934!2d12.395913148658046!3d41.89332027079981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6059d5c4fa3b%3A0xb9d812b7c6957d8f!2sRome%2C%20Metropolitan%20City%20of%20Rome%20Capital%2C%20Italy!5e0!3m2!1sen!2sil!4v1620123456789!5m2!1sen!2sil" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </section>
+
+            <section class="comments">
+                <h2>דירוגים והמלצות גולשים</h2>
+                <div id="comment-list"></div>
+                <form id="commentForm">
+                    <label for="name">שם:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="rating">דירוג:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                    <label for="comment">המלצה:</label>
+                    <textarea id="comment" name="comment" required></textarea>
+                    <button type="submit">שלח</button>
+                </form>
+            </section>
+
+            <section class="related-posts">
+                <h2>כתבות נוספות על רומא</h2>
+                <div class="post-list">
+                    <div class="post-item">
+                        <img src="../images/hidden-gems-rome.jpg" alt="פינות נסתרות ברומא">
+                        <h3>פינות נסתרות ברומא</h3>
+                        <p>גלה את הסודות של העיר...</p>
+                        <a href="hidden-gems-rome_he.html">קרא עוד</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h2>הצטרפו לניוזלטר שלנו</h2>
+                <p>רוצים לקבל את העדכונים הכי חמים על רומא ועוד יעדים? הצטרפו לניוזלטר שלנו וקבלו הטבות ומידע ישירות למייל שלכם.</p>
+                <form id="newsletterForm">
+                    <label for="email">דואר אלקטרוני:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit">הירשמו עכשיו</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

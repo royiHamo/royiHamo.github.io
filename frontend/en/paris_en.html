@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris - The City of Lights | Botel</title>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+    <meta name="description" content="Paris, the most romantic city in the world, offers the most famous sights alongside gourmet French cuisine. Find your guide to the perfect holiday in the City of Lights.">
+    <meta name="keywords" content="Paris, vacation, France, tourism, historical sites, French cuisine">
+</head>
+<body>
+    <div class="container">
+        <!-- Include Header -->
+        <div id="header"></div>
+        <script>
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+        </script>
+        <header>
+            <h1>Paris - The City of Lights</h1>
+        </header>
+
+        <main>
+            <div class="hero">
+                <img src="../images/paris-medium-page.jpg" alt="Louvre Paris">
+            </div>
+
+            <section class="introduction">
+                <h2>The Good Life in Paris</h2>
+                <p>Paris, the cultural heart of Europe, invites you to explore the Louvre Museum, the Eiffel Tower, and its magnificent palaces. The city is a must-see for all art, fashion, and French food lovers.</p>
+            </section>
+
+            <section class="attractions">
+                <h2>Top Attractions in Paris</h2>
+                <ul>
+                    <li><strong>Eiffel Tower:</strong> The most famous symbol of Paris.</li>
+                    <li><strong>Louvre Museum:</strong> Home of the Mona Lisa and many other artworks.</li>
+                    <li><strong>Champs-Élysées:</strong> The world's most famous avenue, filled with luxury shops.</li>
+                </ul>
+            </section>
+
+            <section class="restaurants">
+                <h2>Recommended Restaurants in Paris</h2>
+                <div class="restaurant-list">
+                    <div class="restaurant-item">
+                        <img src="/images/jules-verne-restaurant.jpg" alt="Le Jules Verne">
+                        <h3>Le Jules Verne</h3>
+                        <p>A dining experience inside the Eiffel Tower...</p>
+                        <a href="https://www.lejulesverne-paris.com" target="_blank">Reserve a Table</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/images/epicure-restaurant.jpg" alt="Epicure">
+                        <h3>Epicure</h3>
+                        <p>A high-end restaurant offering classic French cuisine with a modern twist.</p>
+                        <a href="https://www.oetkercollection.com/hotels/le-bristol-paris/restaurants-bar/restaurants/epicure/" target="_blank">Reserve a Table</a>
+                    </div>
+                    <div class="restaurant-item">
+                        <img src="/images/le-cinq-restaurant.jpg" alt="Le Cinq">
+                        <h3>Le Cinq</h3>
+                        <p>A Michelin three-star restaurant serving the best of French cuisine.</p>
+                        <a href="https://www.fourseasons.com/paris/dining/restaurants/le_cinq/" target="_blank">Reserve a Table</a>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section class="whatsapp">
+                <h2>Book a Hotel via Chat Bot</h2>
+                <button onclick="openWhatsApp('Paris')">
+                    <a>&nbsp;&nbsp;&nbsp;Send a Message Now&nbsp;&nbsp;<img src="../icons/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon"></a>
+                </button>
+            </section>
+
+            <section class="map">
+                <h2>Paris Map</h2>
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83874.24966929963!2d2.2769949423705364!3d48.85884407928776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efccb31d2bf%3A0x43d0d5c0cc4b2d49!2sParis%2C%20France!5e0!3m2!1sen!2sus!4v1620123456789!5m2!1sen!2sus" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+                        </section>
+
+            <section class="comments">
+                <h2>User Reviews and Ratings</h2>
+                <div id="comment-list"></div>
+                <form id="commentForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                    <label for="comment">Comment:</label>
+                    <textarea id="comment" name="comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

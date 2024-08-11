@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botel - הבלוג המוביל לחופשות באירופה</title>
-    <link rel="stylesheet" href="frontend\css\styles.css" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
 </head>
+
 <body>
     <div class="container">
-        <header>
-            <h1>ברוכים הבאים ל-Botel</h1>
-            <p>המקור המוביל לחופשות בלתי נשכחות באירופה</p>
-            <button id="loginButton">התחבר</button>
-        </header>
+        <!-- Include Header -->
+        <div id="header"></div>
+        <script>
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+        </script>
+
         <main>
             <section class="destinations">
                 <h2>יעדים פופולריים באירופה</h2>
                 <div class="destination-grid">
-                    <div class="destination-box" onclick="location.href='rome.html';">
-                        <img src="frontend/images/rome-small-box.jpg" alt="רומא">
+                    <div class="destination-box" onclick="location.href='rome_he.html';">
+                        <img src="../images/rome-small-box.jpg" alt="רומא">
                         <h3>רומא - עיר הנצח</h3>
                         <p>גלה את הקסם של רומא עם ההיסטוריה העשירה והאוכל המדהים</p>
                     </div>
-                    <div class="destination-box" onclick="location.href='paris.html';">
-                        <img src="frontend/images/paris-small-box.jpg" alt="פריז">
+                    <div class="destination-box" onclick="location.href='paris_he.html';">
+                        <img src="../images/paris-small-box.jpg" alt="פריז">
                         <h3>פריז - עיר האורות</h3>
                         <p>התחל את המסע שלך בעיר הרומנטית ביותר בעולם</p>
                     </div>
-                    <div class="destination-box" onclick="location.href='barcelona.html';">
-                        <img src="frontend/images/barcelona-small-box.jpg" alt="ברצלונה">
+                    <div class="destination-box" onclick="location.href='barcelona_he.html';">
+                        <img src="../images/barcelona-small-box.jpg" alt="ברצלונה">
                         <h3>ברצלונה - אמנות, תרבות ואדריכלות</h3>
                         <p>חקור את האדריכלות המדהימה והחופים המפוארים של ברצלונה</p>
                     </div>
@@ -39,6 +41,6 @@
             </section>
         </main>
     </div>
-    <script src="frontend/js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

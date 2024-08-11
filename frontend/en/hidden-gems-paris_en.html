@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Gems in Paris | Botel</title>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Include Header -->
+        <div id="header"></div>
+        <script>
+            fetch('../header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+        </script>
+        <header>
+            <h1>Hidden Gems in Paris</h1>
+        </header>
+        <main>
+            <section class="hidden-gems">
+                <h2>Discover Secret Places in Paris</h2>
+                <p>Paris not only offers the famous sites but also lesser-known hidden gems waiting to be explored.</p>
+                <div class="gem-list">
+                    <div class="gem-item">
+                        <h3>Canal Saint-Martin</h3>
+                        <p>This charming canal offers beautiful scenery and local restaurants. <a href="https://www.canauxrama.com/en/canal-saint-martin.htm" target="_blank">Read more about Canal Saint-Martin</a></p>
+                        <img src="../images/canal-saint-martin.jpg" alt="Canal Saint-Martin">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

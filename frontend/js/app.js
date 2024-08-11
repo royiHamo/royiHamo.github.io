@@ -56,11 +56,53 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function openWhatsApp() {
+function openWhatsApp(destination) {
     const phoneNumber = "14155238886";
-    const message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב בפריז לחופשה הקרובה שלי.";
+    var message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב ב{} לחופשה הקרובה שלי.";
+    message = message.replace("{}", destination);
     const encodedMessage = encodeURIComponent(message);
 
     const whatsappURL = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
+
+function changeLanguage(lang) {
+    const html = document.documentElement;
+
+    if (lang === 'en') {
+        html.setAttribute('lang', 'en');
+        html.classList.remove('rtl');
+        html.classList.add('ltr');
+        const currentPath = window.location.pathname;
+        const newPath = currentPath.replace('/he/', '/en/').replace('_he', '_en');
+        if (newPath === '/') {
+            window.location.href = "/en/index_en.html";
+        } else {
+            window.location.href = newPath;
+        }
+    } else if (lang === 'he') {
+        html.setAttribute('lang', 'he');
+        html.classList.remove('ltr');
+        html.classList.add('rtl');
+        const currentPath = window.location.pathname;
+        const newPath = currentPath.replace('/en/', '/he/').replace('_en', '_he');
+        if (newPath === '/') {
+            window.location.href = "/he/index_he.html";
+        } else {
+            window.location.href = newPath;
+        }
+    }
+}
+
+
+function goHome() {
+    const currentPath = window.location.pathname;
+    // go to the home page without the language prefix
+      window.location.href = window.location.origin;
+}
+
+// function changeLanguage(lang) {
+//     const currentPath = window.location.pathname;
+//     const newPath = currentPath.replace(/(en|he)/, lang);
+//     window.location.href = newPath;
+// }

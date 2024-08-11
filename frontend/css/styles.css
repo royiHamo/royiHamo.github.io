@@ -1,11 +1,12 @@
-body {
+/* Base styles for all languages */
+body, header {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    direction: rtl;
-    text-align: right;
+    text-align: left; /* Default alignment for LTR languages */
+    direction: ltr; /* Default direction for LTR languages */
 }
 
 .container {
@@ -38,7 +39,7 @@ h2 {
 
 .destination-box {
     flex: 1;
-    min-width: 250px;
+    min-width: clamp(150px, 20vw, 300px);
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -84,6 +85,14 @@ button:hover {
     background-color: #ff4b3e;
 }
 
+/* .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
 .login-form {
     max-width: 400px;
     margin: 0 auto;
@@ -92,6 +101,60 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.login-form input {
+    width: calc(100% - 22px); /* Adjust to fit inside the form with padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #ff4b3e;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loginForm input,
+#loginForm button {
+    margin-bottom: 15px;
+}
+
+#loginForm button {
+    margin-top: 10px;
+}
+
 
 .whatsapp button {
     display: flex;
@@ -263,8 +326,117 @@ li {
 }
 
 @media (max-width: 768px) {
+    /* Mobile View Adjustments */
+    .destination-box {
+        flex: 10 10 10%; /* Full width on mobile */
+    }
+
+    h1 {
+        font-size: 2em; /* Adjust the font size for mobile */
+    }
+
+    .header-container {
+        flex-direction: column; /* Stack the logo and nav items vertically */
+        align-items: center; /* Center-align items */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Add some space below the logo */
+    }
+
+    .nav-links ul {
+        justify-content: center; /* Center-align the nav items */
+    }
+
+    .nav-links ul li {
+        margin: 5px 0; /* Reduce margin for nav items on mobile */
+    }
+
     .restaurant-item,
     .post-item {
         flex: 1 1 100%;
     }
+
+}
+
+/* Header styles */
+header {
+    padding: 10px 0; /* Add some padding to the header */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out the logo and navigation */
+    max-width: 1200px; /* Ensure the header doesn't stretch too wide */
+    margin: 0 auto; /* Center the header container */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 60px; /* Adjust the height as needed */
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links ul li {
+    margin: 0 15px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #333; /* Adjust the text color */
+    font-size: 18px;
+}
+
+.nav-links ul li a:hover {
+    color: #007bff; /* Adjust the hover color */
+}
+
+/* RTL (Right-to-Left) Support */
+html[lang="he"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="he"] .header-container {
+    justify-content: space-between; /* Adjust if needed for RTL */
+}
+
+html[lang="he"] .nav-links ul {
+    justify-content: flex-end; /* Adjust if needed for RTL */
+}
+
+html[lang="he"] .nav-links ul li {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+/* LTR (Left-to-Right) Support */
+html[lang="en"] body {
+    direction: ltr;
+    text-align: left;
+}
+
+html[lang="en"] .header-container {
+    justify-content: space-between;
+}
+
+html[lang="en"] .nav-links ul {
+    justify-content: flex-start;
+}
+
+html[lang="en"] .nav-links ul li {
+    margin-right: 15px;
+    margin-left: 0;
 }
