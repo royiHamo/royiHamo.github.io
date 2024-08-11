@@ -1,0 +1,7 @@
+*.old
+old_files/*
+ 
+# The  .gitignore  file is used to tell Git which files and directories to ignore. In this case, we are telling Git to ignore any files with the  .old  extension and any files in the  old_files  directory. 
+# Step 3: Commit the changes 
+# Now that we have created the  .gitignore  file, we need to commit the changes to the repository. 
+# git add .gitignore
