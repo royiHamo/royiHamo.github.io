@@ -62,7 +62,15 @@ function openWhatsApp(destination) {
     message = message.replace("{}", destination);
     const encodedMessage = encodeURIComponent(message);
 
-    const whatsappURL = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+    // Detect if the user is on a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    // Construct the WhatsApp URL based on the device type
+    const whatsappURL = isMobile 
+        ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+        : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+    // Open the WhatsApp link in a new tab
     window.open(whatsappURL, '_blank');
 }
 
