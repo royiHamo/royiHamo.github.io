@@ -65,7 +65,7 @@ function trackWhatsAppClick(destination) {
 }
 
 function openWhatsApp(destination) {
-    trackWhatsAppClick(destination);
+    // trackWhatsAppClick(destination);
     const phoneNumber = "14155238886";
     var message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב ב{} לחופשה הקרובה שלי.";
     message = message.replace("{}", destination);
