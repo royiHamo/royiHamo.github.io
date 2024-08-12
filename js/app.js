@@ -56,6 +56,34 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+function trackWhatsAppClick(destination) {
+    gtag('event', 'whatsapp_click', {
+        'event_category': 'engagement',
+        'event_label': destination,
+        'value': 1
+    });
+}
+
+function openWhatsApp(destination) {
+    trackWhatsAppClick(destination);
+    const phoneNumber = "14155238886";
+    var message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב ב{} לחופשה הקרובה שלי.";
+    message = message.replace("{}", destination);
+    const encodedMessage = encodeURIComponent(message);
+
+    // Detect if the user is on a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    // Construct the WhatsApp URL based on the device type
+    const whatsappURL = isMobile 
+        ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+        : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+
+
 function openWhatsApp(destination) {
     const phoneNumber = "14155238886";
     var message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב ב{} לחופשה הקרובה שלי.";
