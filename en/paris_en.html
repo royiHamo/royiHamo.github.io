@@ -25,7 +25,12 @@
         <script>
             fetch('../header.html')
                 .then(response => response.text())
-                .then(data => document.getElementById('header').innerHTML = data);
+                .then(data => {document.getElementById('header').innerHTML = data;
+                    document.getElementById('about_us').textContent = "About";
+                    document.getElementById('about_us').href = "/en/about_us_en.html";
+                    document.getElementById('contact').textContent = "Contact";
+                    document.getElementById('contact').href = "/en/contact_us_en.html";
+                });
         </script>
         <header>
             <h1>Paris - The City of Lights</h1>
@@ -118,7 +123,7 @@
                 <h2>Related Blog Posts on Paris</h2>
                 <div class="post-list">
                     <div class="post-item">
-                        <img src="../images/hidden-gems-paris_en.jpg" alt="Hidden Gems in Paris">
+                        <img src="/images/hidden-gems-paris.jpg" alt="Hidden Gems in Paris">
                         <h3>Hidden Gems in Paris</h3>
                         <p>Discover the secrets of the city...</p>
                         <a href="hidden-gems-paris_en.html">Read More</a>

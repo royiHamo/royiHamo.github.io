@@ -25,7 +25,12 @@
         <script>
             fetch('../header.html')
                 .then(response => response.text())
-                .then(data => document.getElementById('header').innerHTML = data);
+                .then(data => {document.getElementById('header').innerHTML = data;
+                    document.getElementById('about_us').textContent = "About";
+                    document.getElementById('about_us').href = "/en/about_us_en.html";
+                    document.getElementById('contact').textContent = "Contact";
+                    document.getElementById('contact').href = "/en/contact_us_en.html";
+                });
         </script>
         <header>
             <h1>Rome - The Eternal City</h1>
