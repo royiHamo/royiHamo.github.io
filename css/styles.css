@@ -386,6 +386,9 @@ li {
         flex: 1 1 100%;
     }
 
+    .footer p {
+        font-size: 0.9em; /* Slightly smaller font on mobile */
+    }
 }
 
 /* Header styles */
@@ -543,4 +546,42 @@ html[lang="en"] .nav-links ul li {
 
 .home-link:hover {
     background-color: #ff4b3e;
+}
+
+.footer {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 20px 0; /* Padding around the text */
+    font-family: 'Roboto', sans-serif; /* Consistent font with the rest of the site */
+    font-size: 0.9em; /* Slightly smaller font size for a refined look */
+    border-top: 1px solid #444; /* Subtle border on top for separation */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Side padding for small screens */
+}
+
+.footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 1em; /* Font size */
+    letter-spacing: 0.5px; /* Slight spacing between letters for readability */
+}
+
+html[lang="en"] .footer p::after {
+    content: "\00A9"; /* Copyright symbol*/
+    margin-left: 5px; /* Space between the symbol and text */
+    font-size: 1.2em; /* Slightly larger symbol for emphasis */
+    vertical-align: middle; /* Align with the text */
+    color: #ff6f61; /* Color to match the brand (optional) */
+}
+
+html[lang="he"] .footer p::after {
+    content: "\00A9"; /* Copyright symbol*/
+    margin-right: 5px; /* Space between the symbol and text */
+    font-size: 1.2em; /* Slightly larger symbol for emphasis */
+    vertical-align: middle; /* Align with the text */
+    color: #ff6f61; /* Color to match the brand (optional) */
 }
