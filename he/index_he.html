@@ -15,6 +15,7 @@
     <title>Botel - הבלוג המוביל לחופשות באירופה</title>
     <link rel="stylesheet" href="../css/styles.css" type="text/css">
     <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+    <meta name="description" content="גלו בלוגים מומלצים לחופשות, טיפים מקצועיים ומבצעים שאין להם תחרות לחופשה הבאה שלכם. מצאו את המלונות הטובים ביותר, המומלצים והאהובים ביותר באירופה, כל זאת בהתאמה אישית לצרכים שלכם. בין אם אתם מחפשים חבילות חופשה זולות, חופשות יוקרתיות או מדריכי טיול מותאמים אישית, האתר שלנו הוא המקור האולטימטיבי לתכנון החופשה המושלמת. התחילו את המסע הבלתי נשכח שלכם איתנו כבר היום.">
     <meta property="og:title" content="Botel - המקור המוביל לחופשות בלתי נשכחות באירופה">
     <meta property="og:description" content="גלה את היעדים, המסעדות, והחוויות הטובות ביותר ברחבי אירופה עם Botel. החופשה המושלמת מחכה לך!">
     <meta property="og:image" content="https://www.botel.co.il/icons/botel_icon_big.png">
@@ -33,7 +34,16 @@
                 .then(response => response.text())
                 .then(data => document.getElementById('header').innerHTML = data);
         </script>
-
+        <header>
+            <h1>Botel-ברוכים הבאים ל</h1>
+            <p>המקור המוביל לחופשות בלתי נשכחות באירופה</p>
+    
+            <section class="whatsapp-index">
+                <button onclick="trackWhatsAppClick('ראשי'); openWhatsApp('ראשי');">
+                    <a>&nbsp;&nbsp;&nbsp;להזמנת החופשה המושלמת בעזרת הצ'ט בוט החכם שלנו&nbsp;&nbsp;<img src="../icons/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon"></a>
+                </button>
+            </section>
+        </header>
         <main>
             <section class="destinations">
                 <h2>יעדים פופולריים באירופה</h2>

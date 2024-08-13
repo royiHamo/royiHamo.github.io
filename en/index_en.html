@@ -15,6 +15,7 @@
     <title>Botel - The Leading Blog for Vacations in Europe</title>
     <link rel="stylesheet" href="../css/styles.css" type="text/css">
     <link rel="icon" href="../icons/botel.ico" type="image/x-icon">
+    <meta name="description" content="Discover top-rated vacation blogs, expert travel tips, and unbeatable deals for your next holiday. Find the best, most recommended, and most liked hotels in Europe, all tailored to your specific needs. Whether you're looking for cheap vacation packages, luxury getaways, or personalized travel guides, our site is your ultimate resource for planning the perfect trip. Start your unforgettable journey with us today.">
     <meta property="og:title" content="Botel - Your Premier Source for Unforgettable European Vacations">
     <meta property="og:description" content="Discover the best destinations, restaurants, and experiences across Europe with Botel. Your perfect vacation awaits!">
     <meta property="og:image" content="https://www.botel.co.il/icons/botel_icon_big.png">
@@ -31,8 +32,24 @@
         <script>
             fetch('../header.html')
                 .then(response => response.text())
-                .then(data => document.getElementById('header').innerHTML = data);
+                .then(data => {document.getElementById('header').innerHTML = data;
+                    document.getElementById('about_us').textContent = "About";
+                    document.getElementById('about_us').href = "/en/about_us_en.html";
+                    document.getElementById('contact').textContent = "Contact";
+                    document.getElementById('contact').href = "/en/contact_us_en.html";
+                });
         </script>
+
+        <header>
+            <h1>Welcome to Botel</h1>
+            <p>Your premier source for unforgettable vacations in Europe</p>
+
+            <section class="whatsapp-index">
+                <button onclick="trackWhatsAppClick('main'); openWhatsApp('main');">
+                    <a>&nbsp;&nbsp;&nbsp;Book your next vacation with our smart chatbot&nbsp;&nbsp;<img src="../icons/whatsapp-icon.png" alt="WhatsApp Icon" class="whatsapp-icon"></a>
+                </button>
+            </section>
+        </header>
 
         <main>
             <section class="destinations">

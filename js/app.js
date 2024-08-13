@@ -65,10 +65,17 @@ function trackWhatsAppClick(destination) {
 }
 
 function openWhatsApp(destination) {
-    // trackWhatsAppClick(destination);
-    const phoneNumber = "14155238886";
     var message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב ב{} לחופשה הקרובה שלי.";
-    message = message.replace("{}", destination);
+    if (destination === 'main') {
+        message = "Hi, I heard you are the best in hotel booking ;), I would like to start a booking"
+    } else if (destination === 'ראשי') {
+        message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אשמח להתחיל בהזמנה"
+    } else {
+        message = "היי, שמעתי שאתם הכי טובים בהזמנת מלונות ;), אני מעוניין במלון הכי טוב ב{} לחופשה הקרובה שלי.";
+        message = message.replace("{}", destination);
+    }
+    
+    const phoneNumber = "14155238886";
     const encodedMessage = encodeURIComponent(message);
 
     // Detect if the user is on a mobile device
@@ -111,7 +118,8 @@ function changeLanguage(lang) {
         html.classList.add('ltr');
         const currentPath = window.location.pathname;
         const newPath = currentPath.replace('/he/', '/en/').replace('_he', '_en');
-        if (newPath === '/') {
+        alert(newPath);
+        if (newPath === '/' || newPath === '/index.html') {
             window.location.href = "/en/index_en.html";
         } else {
             window.location.href = newPath;
@@ -120,9 +128,13 @@ function changeLanguage(lang) {
         html.setAttribute('lang', 'he');
         html.classList.remove('ltr');
         html.classList.add('rtl');
+        document.getElementById('about_us').textContent = "אודות";
+        document.getElementById('about_us').href = "/he/about_us_he.html";
+        document.getElementById('contact').textContent = "צור קשר";
+        document.getElementById('contact').href = "/he/contact_us_he.html";
         const currentPath = window.location.pathname;
         const newPath = currentPath.replace('/en/', '/he/').replace('_en', '_he');
-        if (newPath === '/') {
+        if (newPath === '/' || newPath === '/index.html') {
             window.location.href = "/he/index_he.html";
         } else {
             window.location.href = newPath;
