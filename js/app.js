@@ -130,8 +130,36 @@ function goHome() {
       window.location.href = window.location.origin;
 }
 
-// function changeLanguage(lang) {
-//     const currentPath = window.location.pathname;
-//     const newPath = currentPath.replace(/(en|he)/, lang);
-//     window.location.href = newPath;
-// }
+document.addEventListener("DOMContentLoaded", function() {
+    // Detect browser language or use a preset language selection
+    var userLang = navigator.language || navigator.userLanguage; 
+    var bannerText, privacyPolicyLink;
+
+    if (userLang.startsWith("he")) {
+        // Hebrew content
+        bannerText = "אנו משתמשים בקובצי Cookie כדי לשפר את החוויה שלך באתר שלנו ולהציג לך פרסומות מותאמות אישית. על ידי המשך השימוש באתר שלנו, אתה מאשר את השימוש שלנו בקובצי Cookie.";
+        privacyPolicyLink = "/he/privacy_policy_he.html";
+    } else {
+        // Default to English
+        bannerText = "We use cookies to improve your experience on our site and to show you personalized advertising. By continuing to use our site, you accept our use of cookies.";
+        privacyPolicyLink = "/en/privacy_policy_en.html";
+    }
+
+    document.getElementById("cookieConsentMessage").textContent = bannerText;
+    document.getElementById("privacyPolicyLink").setAttribute("href", privacyPolicyLink);
+
+    if (!localStorage.getItem("cookiesAccepted")) {
+        document.getElementById("cookieConsentBanner").style.display = "block";
+    }
+
+    document.getElementById("acceptCookiesBtn").addEventListener("click", function() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsentBanner").style.display = "none";
+
+        // Notify Google Tag Manager about the consent if applicable
+        gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'granted'
+        });
+    });
+});
