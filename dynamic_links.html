@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Links</title>
-    <script src="https://www.anrdoezrs.net/am/101231518/include/allCj/am.js"></script>
     <script>
         // Obfuscated password (simple obfuscation for demonstration)
         const obfuscatedPassword = [112, 97, 115, 115, 119, 111, 114, 100];  // 'password' in ASCII
+
+        // CJ parameters
+        const websiteId = 101231518;
+        const trackingServerDomain = 'www.qksrv.net';
+        const sid = undefined;  // Optional
+        const debug = false;
+
+        // Function to log debugging information
+        function log(consoleStr) {
+            if (debug && window.console) {
+                console.log(consoleStr);
+            }
+        }
 
         // Function to check if the provided password is correct
         function isPasswordCorrect(inputPassword) {
@@ -15,24 +27,31 @@
             return inputPassword === decodedPassword;
         }
 
-        // Function to dynamically add a link and simulate a click
-        function addLinkAndClick(url) {
-            // Check if the link already exists
-            if (!document.querySelector(`a[href='${url}']`)) {
-                // Create a new anchor element
-                const newLink = document.createElement('a');
-                newLink.href = url;
-                newLink.textContent = 'Hidden Link';
-                newLink.style.display = 'none'; // Hide the link from view
+        // Function to get the domain and protocol from a URL
+        function getDomainAndProtocol(url) {
+            const matches = url.match(/^(https?)\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+            const protocol = matches && matches[1];
+            const domain = matches && matches[2];
+            return { domain: domain, protocol: protocol };
+        }
 
-                // Add the link to the body
-                document.body.appendChild(newLink);
+        // Function to auto-monetize a link
+        function autoMonetizeLink(url) {
+            const domainAndProtocol = getDomainAndProtocol(url);
+            if (!domainAndProtocol.domain) return url;
 
-                // Simulate a click on the new link
-                newLink.click();
+            const domainInLowerCase = domainAndProtocol.domain.toLowerCase();
+            if (domainInLowerCase) { // You might want to add a domain check here
+                log("Domain found. Automonetizing...");
+                let extraParams = "";
+                if (sid) {
+                    extraParams = "/sid/" + sid;
+                }
+                const monetizedUrl = "https://" + trackingServerDomain + "/links/" + websiteId + "/type/am" + extraParams + "/" + encodeURIComponent(url);
+                return monetizedUrl;
             } else {
-                // If the link exists, click it directly
-                document.querySelector(`a[href='${url}']`).click();
+                log("Domain not found. Returning original URL.");
+                return url;
             }
         }
 
@@ -42,14 +61,16 @@
             return urlParams.get(param);
         }
 
-        // On page load, check the password and add/click the link if valid
+        // On page load, check the password and redirect to the monetized link if valid
         document.addEventListener('DOMContentLoaded', () => {
             const password = getQueryParam('password');
             const link = getQueryParam('link');
 
             if (password && isPasswordCorrect(password)) {
                 if (link) {
-                    addLinkAndClick(link);
+                    // Convert the link to an affiliate link and redirect
+                    const monetizedUrl = autoMonetizeLink(link);
+                    window.location.href = monetizedUrl;
                 } else {
                     // If link is not provided, show an error message
                     document.body.innerHTML = "<h1>Error: Link not provided</h1>";
@@ -63,6 +84,6 @@
 </head>
 <body>
     <h1>Dynamic Links Page</h1>
-    <p>This page is used to dynamically add and click on links.</p>
+    <p>This page automatically converts and redirects links to affiliate URLs.</p>
 </body>
 </html>
