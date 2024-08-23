@@ -11,12 +11,14 @@
         // CJ parameters
         const websiteId = 101231518;
         const trackingServerDomain = 'www.qksrv.net';
+        const generateLinkOnLoad = false;
+        const publisherId = 7194971;
         const sid = undefined;  // Optional
         const debug = false;
 
         // Function to log debugging information
-        function log(consoleStr) {
-            if (debug && window.console) {
+        function log(consoleStr){
+            if (debug && window.console){
                 console.log(consoleStr);
             }
         }
@@ -36,7 +38,7 @@
         }
 
         // Function to auto-monetize a link
-        function autoMonetizeLink(url) {
+        function autoMonetizeLink(url){
             const domainAndProtocol = getDomainAndProtocol(url);
             if (!domainAndProtocol.domain) return url;
 
@@ -55,22 +57,44 @@
             }
         }
 
+        // Function to dynamically add a link and simulate a click
+        function addLinkAndClick(url) {
+            // Convert the link to an affiliate link
+            const monetizedUrl = autoMonetizeLink(url);
+
+            // Check if the link already exists
+            if (!document.querySelector(`a[href='${monetizedUrl}']`)) {
+                // Create a new anchor element
+                const newLink = document.createElement('a');
+                newLink.href = monetizedUrl;
+                newLink.textContent = 'Hidden Link';
+                newLink.style.display = 'none'; // Hide the link from view
+
+                // Add the link to the body
+                document.body.appendChild(newLink);
+
+                // Simulate a click on the new link
+                newLink.click();
+            } else {
+                // If the link exists, click it directly
+                document.querySelector(`a[href='${monetizedUrl}']`).click();
+            }
+        }
+
         // Parse the query parameters from the URL
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
 
-        // On page load, check the password and redirect to the monetized link if valid
+        // On page load, check the password and add/click the link if valid
         document.addEventListener('DOMContentLoaded', () => {
             const password = getQueryParam('password');
             const link = getQueryParam('link');
 
             if (password && isPasswordCorrect(password)) {
                 if (link) {
-                    // Convert the link to an affiliate link and redirect
-                    const monetizedUrl = autoMonetizeLink(link);
-                    window.location.href = monetizedUrl;
+                    addLinkAndClick(link);
                 } else {
                     // If link is not provided, show an error message
                     document.body.innerHTML = "<h1>Error: Link not provided</h1>";
@@ -84,6 +108,6 @@
 </head>
 <body>
     <h1>Dynamic Links Page</h1>
-    <p>This page automatically converts and redirects links to affiliate URLs.</p>
+    <p>This page is used to dynamically add and click on links.</p>
 </body>
 </html>
