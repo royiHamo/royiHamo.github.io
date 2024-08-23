@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Links</title>
+    <script src="https://www.anrdoezrs.net/am/101231518/include/allCj/am.js"></script>
+    <script>
+        // Obfuscated password (simple obfuscation for demonstration)
+        const obfuscatedPassword = [112, 97, 115, 115, 119, 111, 114, 100];  // 'password' in ASCII
+
+        // Function to check if the provided password is correct
+        function isPasswordCorrect(inputPassword) {
+            const decodedPassword = String.fromCharCode(...obfuscatedPassword);
+            return inputPassword === decodedPassword;
+        }
+
+        // Function to dynamically add a link and simulate a click
+        function addLinkAndClick(url) {
+            // Check if the link already exists
+            if (!document.querySelector(`a[href='${url}']`)) {
+                // Create a new anchor element
+                const newLink = document.createElement('a');
+                newLink.href = url;
+                newLink.textContent = 'Hidden Link';
+                newLink.style.display = 'none'; // Hide the link from view
+
+                // Add the link to the body
+                document.body.appendChild(newLink);
+
+                // Simulate a click on the new link
+                newLink.click();
+            } else {
+                // If the link exists, click it directly
+                document.querySelector(`a[href='${url}']`).click();
+            }
+        }
+
+        // Parse the query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // On page load, check the password and add/click the link if valid
+        document.addEventListener('DOMContentLoaded', () => {
+            const password = getQueryParam('password');
+            const link = getQueryParam('link');
+
+            if (password && isPasswordCorrect(password)) {
+                if (link) {
+                    addLinkAndClick(link);
+                } else {
+                    // If link is not provided, show an error message
+                    document.body.innerHTML = "<h1>Error: Link not provided</h1>";
+                }
+            } else {
+                // If password is incorrect or not provided, redirect to an error page
+                window.location.href = 'error.html';  // You need to create this error.html page
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Dynamic Links Page</h1>
+    <p>This page is used to dynamically add and click on links.</p>
+</body>
+</html>
